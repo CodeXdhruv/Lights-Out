@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumina</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo.png">
+
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <script src="script.js" defer></script>
+  <script src="main.js" defer></script>
+  <style>
+    footer {
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 30px 20px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+    footer img {
+      width: 60px;
+      margin-bottom: 10px;
+    }
+    footer p {
+      margin: 5px 0;
+      font-size: 14px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+    footer a {
+      color: #00e6e6;
+      font-weight: bold;
+      text-decoration: underline;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div class="landing-container">
+    <div class="background-image"></div>
+    <main class="hero-content">
+      <h1 class="main-title">LUMINA</h1>
+      <div class="event-types">
+        STAND UP | LIVE BAND SHOW | MOTO SHOW | FOOD EXPO
+      </div>
+      <a href="#pricing" class="register-button" onclick="scrollToPricing(event)">Register Now</a>
+    </main>
+    
+    <script>
+      function scrollToPricing(e) {
+        e.preventDefault();
+        const targetSection = document.getElementById('pricing');
+        const startPosition = window.pageYOffset;
+        const targetPosition = targetSection.offsetTop;
+        const distance = targetPosition - startPosition;
+        const duration = 900;
+        let start = null;
+
+        function animation(currentTime) {
+          if (start === null) start = currentTime;
+          const timeElapsed = currentTime - start;
+          const progress = Math.min(timeElapsed / duration, 1);
+          const easeInOutQuad = t => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+          window.scrollTo(0, startPosition + distance * easeInOutQuad(progress));
+          if (timeElapsed < duration) {
+            requestAnimationFrame(animation);
+          }
+        }
+
+        requestAnimationFrame(animation);
+      }
+    </script>
+  </div>
+
+  <section class="highlights-section">
+    <h2 class="highlights-title">LUMINA HIGHLIGHTS</h2>
+    <br>
+    
+    <div class="highlights-grid">
+      <div class="highlight-card">
+        <h3>STAND UP</h3>
+        <p>Get ready to laugh until your cheeks hurt with stand-up that's raw, relatable, and absolutely hilarious. Warning: side effects include sore abs!</p>
+      </div>
+
+      <div class="highlight-card">
+        <h3>LIVE BAND SHOW</h3>
+        <p>Feel the bass drop and vocals soar with live performances that'll turn the campus into your personal concert hall. Bring your voice for the sing-alongs!</p>
+      </div>
+
+      <div class="highlight-card">
+        <h3>MOTO SHOW</h3>
+        <p>Watch riders defy gravity with insane stunts and feel the roar of engines that'll shake your soul. Pure adrenaline, zero limits!</p>
+      </div>
+    </div>
+    <br>
+    <div class="event-description">
+      <p>The most electrifying welcome of the year is here - Buckle up for a night of roaring moto stunts, side-splitting stand-up comedy, and <span class="highlight">15+ explosive live performances</span> - music, dance, drama, and more!.</p>
+    </div>
+    <br>
+    <div id="pricing" class="pricing-grid">
+      <a href="register.html?type=general" class="pricing-card general">
+        <h3>General Access</h3>
+        <div class="price">₹250</div>
+        <p>Full event access + memories for life</p>
+      </a>
+
+      <a href="register.html?type=vip" class="pricing-card vip">
+        <div class="popular-tag">POPULAR</div>
+        <h3>VIP Access</h3>
+        <div class="price">₹500</div>
+        <p>Premium seating + exclusive perks + bragging rights</p>
+      </a>
+    </div>
+    <br><br>
+    <div class="pricing-note">
+      Limited passes available • Early bird gets the best seats • No FOMO allowed
+    </div>
+  </section>
+
+  <section id="previous-events" class="previous-events-section">
+    <div class="previous-image"></div>
+  </section>
+
+  <footer>
+    <img src="logo.png" alt="Logo">
+    <p><strong>NEED ASSISTANCE?</strong></p>
+    <p><a href="mailto:untangle.lpu@gmail.com">untangle.lpu@gmail.com</a></p>
+    <p>&copy; 2025 Untangle. All rights reserved.</p>
+  </footer>
+</body>
+</html>

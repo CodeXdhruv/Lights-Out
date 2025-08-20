@@ -1,0 +1,517 @@
+@font-face {
+  font-family: 'Dharma Gothic E';
+  src: url('dharma-gothic-e/DharmaGothicE_Regular_R.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Dharma Gothic E';
+  src: url('dharma-gothic-e/DharmaGothicE_Bold_R.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Dharma Gothic E';
+  src: url('dharma-gothic-e/DharmaGothicE_ExBold_R.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Dharma Gothic E';
+  src: url('dharma-gothic-e/DharmaGothicE_Heavy_R.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Dharma Gothic E';
+  src: url('dharma-gothic-e/DharmaGothicE_Light_R.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Dharma Gothic E', sans-serif;
+  background: #000;
+  color: #fff;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-weight: normal;
+}
+
+.landing-container {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh; /* Dynamic viewport height for mobile */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('Light.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 1;
+  z-index: 1;
+  transform: scale(1.01); /* Prevents white edges on mobile during scroll */
+  will-change: transform; /* Optimization for animations */
+}
+
+.background-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(800px circle at 20% 80%, #00a3ff10 0%, transparent 50%),
+    radial-gradient(800px circle at 80% 20%, #00a3ff10 0%, transparent 50%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 2rem;
+}
+
+.main-title {
+  font-family: 'Dharma Gothic E', sans-serif;
+  font-size: 280px;
+  margin: 0;
+  padding: 0;
+  letter-spacing: 1rem;
+  position: relative;
+  z-index: 3;
+  color: #ffffff;
+  font-weight: 900;
+  text-transform: uppercase;
+  
+  /* Minimal static glow effect */
+  text-shadow: 
+    0 0 10px rgba(0, 163, 255, 0.6),
+    0 0 20px rgba(0, 163, 255, 0.4),
+    0 0 30px rgba(0, 163, 255, 0.3);
+}
+
+
+
+.event-types {
+  font-family: 'Dharma Gothic E', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  color: #fff;
+  margin-bottom: 4rem;
+  font-weight: 300;
+  opacity: 0.9;
+  text-shadow: 0 0 10px rgba(0, 163, 255, 0.2);
+  text-transform: uppercase;
+}
+
+.register-button {
+  display: inline-block;
+  padding: 1rem 3rem;
+  font-size: 1.6rem;
+  color: #fff;
+  text-decoration: none;
+  border: 2px solid #fff;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  font-weight: 800;
+  letter-spacing: 2px;
+  font-family: 'Dharma Gothic E', sans-serif;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0.1);
+  text-transform: uppercase;
+}
+
+.register-button:hover {
+  background: #00a3ff;
+  border-color: #00a3ff;
+  box-shadow: 0 0 20px rgba(0, 163, 255, 0.5);
+}
+
+/* Highlights Section */
+.highlights-section {
+  background-image: url('gradient.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding: 4rem 1.5rem;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+  margin-top: 100vh;
+  overflow: visible;
+}
+
+.highlights-title {
+  font-family: 'Dharma Gothic E', sans-serif;
+  font-size: 3rem;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 2rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  text-transform: uppercase;
+}
+
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+  padding: 0 1rem;
+}
+
+.highlight-card {
+  background: rgba(0, 0, 0, 0.75);
+  border: 2px solid #00a3ff;
+  border-radius: 25px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 
+    0 0 20px rgba(0, 163, 255, 0.3),
+    inset 0 0 20px rgba(0, 163, 255, 0.2);
+  backdrop-filter: blur(15px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.highlight-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 5px 25px rgba(0, 163, 255, 0.4),
+    inset 0 0 20px rgba(0, 163, 255, 0.3);
+}
+
+/* Previous Events Section */
+.previous-events-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.previous-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('previous.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  transition: transform 0.3s ease-out;
+}
+
+.previous-image:hover {
+  transform: scale(1.02);
+}
+
+.highlight-card h3 {
+  font-size: 1.4rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.highlight-card p {
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+  font-size: 0.95rem;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
+}
+
+.event-description {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 2rem;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.95);
+  padding: 0 1rem;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.highlight {
+  color: #ffd700;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 0.5rem;
+}
+
+.pricing-card {
+  background: rgba(0, 10, 50, 0.5);
+  border-radius: 25px;
+  padding: 1.5rem;
+  text-align: center;
+  position: relative;
+  box-shadow: 
+    0 0 15px rgba(0, 102, 255, 0.3),
+    inset 0 0 20px rgba(0, 102, 255, 0.2);
+  backdrop-filter: blur(10px);
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.pricing-card.general {
+  border: 2px solid #00ff66;
+  box-shadow: 
+    0 0 15px rgba(0, 255, 102, 0.3),
+    inset 0 0 20px rgba(0, 255, 102, 0.2);
+}
+
+.pricing-card.vip {
+  border: 2px solid #ffd700;
+  box-shadow: 
+    0 0 15px rgba(255, 215, 0, 0.3),
+    inset 0 0 20px rgba(255, 215, 0, 0.2);
+}
+
+.popular-tag {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background: #ffd700;
+  color: #000;
+  padding: 0.3rem 1rem;
+  border-radius: 15px;
+  font-weight: bold;
+  font-size: 0.85rem;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 10px rgba(255, 215, 0, 0.3);
+}
+
+.pricing-card h3 {
+  font-size: 1.4rem;
+  color: #fff;
+  margin-bottom: 0.75rem;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.pricing-card .price {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 0.75rem;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.pricing-card p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  line-height: 1.3;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .highlights-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+  
+  .main-title {
+    font-size: 4rem;
+  }
+  
+  .event-types {
+    font-size: 1.4rem;
+    margin-bottom: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .highlights-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+  
+  .highlights-title {
+    font-size: 2rem;
+  }
+  
+  .event-description {
+    font-size: 1rem;
+    padding: 0 1.5rem;
+  }
+  
+  .main-title {
+    font-size: 3rem;
+    letter-spacing: 0.5rem;
+  }
+  
+  .event-types {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    padding: 0 1rem;
+  }
+  
+  .register-button {
+    padding: 0.8rem 2rem;
+    font-size: 1.2rem;
+  }
+  
+  .highlight-card {
+    padding: 1.2rem;
+  }
+  
+  .pricing-card {
+    margin: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-title {
+    font-size: 2.5rem;
+    letter-spacing: 0.3rem;
+  }
+  
+  .event-types {
+    font-size: 1rem;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+  }
+  
+  .register-button {
+    padding: 0.7rem 1.8rem;
+    font-size: 1.1rem;
+  }
+  
+  .highlights-title {
+    font-size: 1.8rem;
+  }
+  
+  .highlight-card h3 {
+    font-size: 1.2rem;
+  }
+  
+  .highlight-card p {
+    font-size: 0.9rem;
+  }
+  
+  .pricing-card .price {
+    font-size: 1.8rem;
+  }
+  
+  .pricing-card h3 {
+    font-size: 1.2rem;
+  }
+  
+  .pricing-card p {
+    font-size: 0.9rem;
+  }
+  
+  .popular-tag {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.8rem;
+  }
+}
+
+section img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.pricing-note {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 400;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.pass {
+  background: #f0e68c;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.pass a {
+  color: #222;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.pass span {
+  font-size: 1.2rem;
+  color: #d2691e;
+  margin: 0.5rem 0;
+}
+
+button {
+  background: #ffd700;
+  color: #222;
+  border: none;
+  border-radius: 6px;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+button:hover {
+  background: #ffb700;
+}

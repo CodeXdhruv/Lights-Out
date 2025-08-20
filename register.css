@@ -1,0 +1,204 @@
+/* Registration form specific styles */
+.register-page {
+    min-height: 100vh;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    position: relative;
+    padding-bottom: 150px; /* Space for footer */
+}
+
+.page-wrapper {
+    min-height: 100vh;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.registration-form {
+    background: rgba(0, 0, 0, 0.75);
+    padding: 2.5rem;
+    border-radius: 20px;
+    color: white;
+    box-shadow: 
+        0 0 30px rgba(0, 163, 255, 0.2),
+        inset 0 0 20px rgba(0, 163, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(0, 163, 255, 0.1);
+}
+
+.registration-form h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.required {
+    color: red;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 163, 255, 0.3);
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+/* 🔥 Updated Dropdowns */
+.form-group select {
+    background-color: black;
+    color: white;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #00a3ff;
+    box-shadow: 0 0 10px rgba(0, 163, 255, 0.2);
+}
+
+.form-group input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.phone-input {
+    display: flex;
+    gap: 10px;
+}
+
+.phone-input select {
+    width: 120px;
+}
+
+.phone-input input {
+    flex: 1;
+}
+
+.qr-code {
+    display: block;
+    width: 200px;
+    height: 200px;
+    margin: 1rem auto;
+}
+
+.upload-container {
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.upload-container input[type="file"] {
+    width: 100%;
+    padding: 0.8rem;
+    background: rgba(0, 10, 50, 0.4);
+    border: 2px dashed rgba(0, 163, 255, 0.4);
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.upload-container input[type="file"]:hover {
+    border-color: #00A3FF;
+    background: rgba(0, 163, 255, 0.1);
+}
+
+.upload-container input[type="file"]::file-selector-button {
+    background: #00A3FF;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-right: 1rem;
+    transition: all 0.3s ease;
+}
+
+.upload-container input[type="file"]::file-selector-button:hover {
+    background: #0086d1;
+}
+
+.file-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.preview-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 10, 50, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: none;
+}
+
+.preview-image.has-image {
+    display: block;
+}
+
+.selected-file {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+.upload-icon {
+    font-size: 1.2rem;
+}
+
+.submit-btn {
+    background: #00A3FF;
+    color: white;
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.submit-btn:hover {
+    background: #0086d1;
+}
+
+/* Style for dropdowns */
+select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 20px;
+    background-color: black;
+    color: white;
+}
+
+/* Input focus states */
+input:focus,
+select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #00A3FF;
+}

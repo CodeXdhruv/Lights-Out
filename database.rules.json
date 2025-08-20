@@ -1,0 +1,11 @@
+{
+  "rules": {
+    ".read": true,
+    "registrations": {
+      ".write": true,
+      "$registration": {
+        ".validate": "newData.hasChildren(['firstName', 'email', 'phone', 'regNo', 'gender', 'referredFrom', 'paymentScreenshot', 'timestamp', 'status'])"
+      }
+    }
+  }
+}
