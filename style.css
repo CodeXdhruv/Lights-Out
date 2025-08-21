@@ -51,6 +51,30 @@ body {
   font-weight: normal;
 }
 
+/* Header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #000;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+.header-logo {
+  height: 60px;
+  width: auto;
+  display: block;
+}
+.header-udaan {
+  height: 60px;
+  width: auto;
+  margin-left: auto;
+  margin-right: 20px;
+}
+
 .landing-container {
   position: fixed;
   width: 100%;
@@ -119,8 +143,6 @@ body {
     0 0 20px rgba(0, 163, 255, 0.4),
     0 0 30px rgba(0, 163, 255, 0.3);
 }
-
-
 
 .event-types {
   font-family: 'Dharma Gothic E', sans-serif;
@@ -215,11 +237,11 @@ body {
     inset 0 0 20px rgba(0, 163, 255, 0.3);
 }
 
-/* Previous Events Section */
+/* Previous Events Section - Full width, no black borders */
 .previous-events-section {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 70vh; /* Increased height for desktop to show full text */
   overflow: hidden;
   z-index: 1;
 }
@@ -232,7 +254,7 @@ body {
   height: 100%;
   background-image: url('previous.png');
   background-size: cover;
-  background-position: center;
+  background-position: center top; /* Changed to show top part of image better */
   background-repeat: no-repeat;
   background-attachment: scroll;
   transition: transform 0.3s ease-out;
@@ -354,6 +376,28 @@ body {
 }
 
 /* Responsive Design */
+@media (max-width: 1200px) {
+  .highlights-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+  
+  .main-title {
+    font-size: 4rem;
+  }
+  
+  .event-types {
+    font-size: 1.4rem;
+    margin-bottom: 3rem;
+  }
+
+  /* Previous Events responsive adjustment */
+  .previous-events-section {
+    height: 60vh;
+  }
+}
+
 @media (max-width: 1024px) {
   .highlights-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -413,6 +457,15 @@ body {
   .pricing-card {
     margin: 0 1rem;
   }
+
+  /* Previous Events responsive adjustment */
+  .previous-events-section {
+    height: 45vh;
+  }
+  
+  .previous-image {
+    background-position: center center; /* Center on mobile for better balance */
+  }
 }
 
 @media (max-width: 480px) {
@@ -459,6 +512,18 @@ body {
   .popular-tag {
     font-size: 0.75rem;
     padding: 0.2rem 0.8rem;
+  }
+
+  /* Previous Events responsive adjustment */
+  .previous-events-section {
+    height: 35vh;
+  }
+}
+
+/* For very small screens */
+@media (max-width: 320px) {
+  .previous-events-section {
+    height: 30vh;
   }
 }
 

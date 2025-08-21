@@ -1,321 +1,296 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration for Lights Out - Untangle</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration for Lights Out - Untangle</title>
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="logo.png">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="register.css">
-    <!-- Firebase scripts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        body.register-page {
-            background-image: url('gradient.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }
-        
-        .upload-container {
-            margin-top: 1rem;
-        }
-        
-        .upload-label {
-            display: block;
-            cursor: pointer;
-        }
-
-        .upload-btn {
-            background: #00A3FF;
-            color: white;
-            padding: 1rem;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .upload-btn:hover {
-            background: #0086d1;
-            box-shadow: 0 0 15px rgba(0, 163, 255, 0.3);
-        }
-
-        input[type="file"] {
-            display: none;
-        }
-
-        .file-info {
-            margin-top: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .preview-image {
-            width: 60px;
-            height: 60px;
-            border-radius: 6px;
-            background-size: cover;
-            background-position: center;
-            display: none;
-        }
-
-        .preview-image.has-image {
-            display: block;
-            border: 2px solid #00A3FF;
-        }
-
-        .selected-file {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.9rem;
-        }
-
-        .upload-icon {
-            font-size: 1.5rem;
-            line-height: 1;
-        }
-
-        /* QR Styling */
-        .qr-wrapper {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-        }
-
-        .qr-code {
-            width: 150px;
-            height: 150px;
-            object-fit: contain;
-        }
-
-        /* Footer Styles */
-        footer {
-            background: #000;
-            color: #fff;
-            text-align: center;
-            padding: 30px 20px;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-        }
-        footer img {
-            width: 60px;
-            margin-bottom: 10px;
-        }
-        footer p {
-            margin: 5px 0;
-            font-size: 14px;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-        }
-        footer a {
-            color: #00e6e6;
-            font-weight: bold;
-            text-decoration: underline;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-        }
-    </style>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="register.css">
+  <!-- Firebase scripts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body.register-page {
+      background-image: url('gradient.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+    .upload-container {
+      margin-top: 1rem;
+    }
+    .upload-label {
+      display: block;
+      cursor: pointer;
+    }
+    .upload-btn {
+      background: #00A3FF;
+      color: white;
+      padding: 1rem;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+    }
+    .upload-btn:hover {
+      background: #0086d1;
+      box-shadow: 0 0 15px rgba(0, 163, 255, 0.3);
+    }
+    input[type="file"] {
+      display: none;
+    }
+    .file-info {
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .preview-image {
+      width: 60px;
+      height: 60px;
+      border-radius: 6px;
+      background-size: cover;
+      background-position: center;
+      display: none;
+    }
+    .preview-image.has-image {
+      display: block;
+      border: 2px solid #00A3FF;
+    }
+    .selected-file {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.9rem;
+    }
+    .upload-icon {
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+    /* QR Styling */
+    .qr-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+    .qr-code {
+      width: 150px;
+      height: 150px;
+      object-fit: contain;
+    }
+    /* Footer Styles */
+    footer {
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 30px 20px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+    footer img {
+      width: 60px;
+      margin-bottom: 10px;
+    }
+    footer p {
+      margin: 5px 0;
+      font-size: 14px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+    footer a {
+      color: #00e6e6;
+      font-weight: bold;
+      text-decoration: underline;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+  </style>
 </head>
 <body class="register-page">
-    <div class="page-wrapper">
-        <main class="register-container">
-            <form id="registrationForm" class="registration-form">
-            <h1>REGISTRATION FOR LIGHTS OUT</h1>
-            <input type="hidden" id="accessType" name="accessType">
-            
-            <div class="form-group">
-                <label for="firstName">First name <span class="required">*</span></label>
-                <input type="text" id="firstName" name="firstName" required placeholder="Enter your first name">
-            </div>
+  <div class="page-wrapper">
+    <main class="register-container">
+      <form id="registrationForm" class="registration-form">
+        <h1>REGISTRATION FOR LIGHTS OUT</h1>
+        <input type="hidden" id="accessType" name="accessType">
 
-            <div class="form-group">
-                <label for="email">Email <span class="required">*</span></label>
-                <input type="email" id="email" name="email" required placeholder="Enter your email">
-            </div>
+        <div class="form-group">
+          <label for="firstName">First name <span class="required">*</span></label>
+          <input type="text" id="firstName" name="firstName" required placeholder="Enter your first name">
+        </div>
 
-            <div class="form-group">
-                <label for="phone">Phone <span class="required">*</span></label>
-                <div class="phone-input">
-                    <select id="countryCode" name="countryCode" class="country-select">
-                        <option value="+91">🇮🇳 +91</option>
-                    </select>
-                    <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
-                </div>
-            </div>
+        <div class="form-group">
+          <label for="email">Email <span class="required">*</span></label>
+          <input type="email" id="email" name="email" required placeholder="Enter your email">
+        </div>
 
-            <div class="form-group">
-                <label for="regNo">Registration No. <span class="required">*</span></label>
-                <input type="text" id="regNo" name="regNo" required placeholder="Enter your registration number">
-            </div>
+        <div class="form-group">
+          <label for="phone">Phone <span class="required">*</span></label>
+          <div class="phone-input">
+            <select id="countryCode" name="countryCode" class="country-select">
+              <option value="+91">🇮🇳 +91</option>
+            </select>
+            <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+          </div>
+        </div>
 
-            <div class="form-group">
-                <label for="gender">Gender <span class="required">*</span></label>
-                <select id="gender" name="gender" required>
-                    <option value="">Choose one</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
-                </select>
-            </div>
+        <div class="form-group">
+          <label for="regNo">Registration No. <span class="required">*</span></label>
+          <input type="text" id="regNo" name="regNo" required placeholder="Enter your registration number">
+        </div>
 
-            <div class="form-group">
-                <label for="referredFrom">Referred From <span class="required">*</span></label>
-                <select id="referredFrom" name="referredFrom" required>
-                    <option value="">Choose one</option>
-                    <option value="udaan">Udaan</option>
-                    <option value="untangle">Untangle</option>
-                </select>
-            </div>
+        <div class="form-group">
+          <label for="gender">Gender <span class="required">*</span></label>
+          <select id="gender" name="gender" required>
+            <option value="">Choose one</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
 
-            <!-- QR Section -->
-            <div class="form-group qr-section">
-                <label>Payment QR Code</label>
-                <div class="qr-wrapper">
-                    <img src="qr.jpeg" alt="Payment QR Code" class="qr-code">
-                </div>
-            </div>
+        <div class="form-group">
+          <label for="referredFrom">Referred From <span class="required">*</span></label>
+          <select id="referredFrom" name="referredFrom" required>
+            <option value="">Choose one</option>
+            <option value="udaan">Udaan</option>
+            <option value="untangle">Untangle</option>
+          </select>
+        </div>
 
-            <!-- Upload Screenshot -->
-            <div class="form-group">
-                <label for="paymentScreenshot">Upload the payment screenshot <span class="required">*</span></label>
-                <div class="upload-container">
-                    <label class="upload-label">
-                        <input type="file" id="paymentScreenshot" name="paymentScreenshot" accept="image/*" required>
-                        <div class="upload-btn">
-                            <span class="upload-icon">+</span>
-                            <span>Choose File</span>
-                        </div>
-                    </label>
-                    <div class="file-info">
-                        <div class="preview-image"></div>
-                        <span class="selected-file">No file chosen</span>
-                    </div>
-                </div>
-            </div>
+        <!-- QR Section -->
+        <div class="form-group qr-section">
+          <label>Payment QR Code</label>
+          <div class="qr-wrapper">
+            <!-- UPDATED: Added id for dynamic QR -->
+            <img src="qr.jpeg" alt="Payment QR Code" class="qr-code" id="qrCode">
+          </div>
+        </div>
 
-            <!-- Transaction ID Field -->
-            <div class="form-group">
-                <label for="transactionId">Transaction ID <span class="required">*</span></label>
-                <input type="text" id="transactionId" name="transactionId" required placeholder="Enter your transaction ID">
+        <!-- Upload Screenshot -->
+        <div class="form-group">
+          <label for="paymentScreenshot">Upload the payment screenshot <span class="required">*</span></label>
+          <div class="upload-container">
+            <label class="upload-label">
+              <input type="file" id="paymentScreenshot" name="paymentScreenshot" accept="image/*" required>
+              <div class="upload-btn">
+                <span class="upload-icon">+</span>
+                <span>Choose File</span>
+              </div>
+            </label>
+            <div class="file-info">
+              <div class="preview-image"></div>
+              <span class="selected-file">No file chosen</span>
             </div>
+          </div>
+        </div>
 
-            <button type="submit" class="submit-btn">Submit</button>
-        </form>
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
     </main>
 
     <script type="module">
-        import { saveFormData } from './firebase.js';
-        
-        // File upload handling
-        const fileInput = document.getElementById('paymentScreenshot');
-        const selectedFile = document.querySelector('.selected-file');
-        const previewImage = document.querySelector('.preview-image');
+      import { saveFormData } from './firebase.js';
+      
+      // File upload handling
+      const fileInput = document.getElementById('paymentScreenshot');
+      const selectedFile = document.querySelector('.selected-file');
+      const previewImage = document.querySelector('.preview-image');
 
-        fileInput.addEventListener('change', function(e) {
-            if (this.files && this.files[0]) {
-                const file = this.files[0];
-                
-                // Update file name display
-                selectedFile.textContent = file.name;
-                
-                // Show image preview
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    previewImage.style.backgroundImage = `url(${e.target.result})`;
-                    previewImage.classList.add('has-image');
-                };
-                reader.readAsDataURL(file);
+      fileInput.addEventListener('change', function(e) {
+        if (this.files && this.files[0]) {
+          const file = this.files[0];
+          selectedFile.textContent = file.name;
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            previewImage.style.backgroundImage = `url(${e.target.result})`;
+            previewImage.classList.add('has-image');
+          };
+          reader.readAsDataURL(file);
 
-                // Validate file size (5MB max)
-                const maxSize = 5 * 1024 * 1024;
-                if (file.size > maxSize) {
-                    alert('File is too large. Please select an image under 5MB.');
-                    this.value = '';
-                    resetFileUpload();
-                    return;
-                }
+          const maxSize = 5 * 1024 * 1024;
+          if (file.size > maxSize) {
+            alert('File is too large. Please select an image under 5MB.');
+            this.value = '';
+            resetFileUpload();
+            return;
+          }
 
-                // Validate file type
-                const validTypes = ['image/jpeg', 'image/png', 'image/jpg'];
-                if (!validTypes.includes(file.type)) {
-                    alert('Please select a valid image file (JPEG, PNG).');
-                    this.value = '';
-                    resetFileUpload();
-                    return;
-                }
-            }
-        });
-
-        function resetFileUpload() {
-            selectedFile.textContent = 'No file chosen';
-            previewImage.style.backgroundImage = 'none';
-            previewImage.classList.remove('has-image');
+          const validTypes = ['image/jpeg', 'image/png', 'image/jpg'];
+          if (!validTypes.includes(file.type)) {
+            alert('Please select a valid image file (JPEG, PNG).');
+            this.value = '';
+            resetFileUpload();
+            return;
+          }
         }
+      });
 
-        // Get access type from URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const accessType = urlParams.get('type');
-        document.getElementById('accessType').value = accessType;
+      function resetFileUpload() {
+        selectedFile.textContent = 'No file chosen';
+        previewImage.style.backgroundImage = 'none';
+        previewImage.classList.remove('has-image');
+      }
 
-        // Form submission handling
-        document.getElementById('registrationForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            try {
-                const formData = {
-                    firstName: document.getElementById('firstName').value,
-                    email: document.getElementById('email').value,
-                    phone: document.getElementById('countryCode').value + document.getElementById('phone').value,
-                    regNo: document.getElementById('regNo').value,
-                    gender: document.getElementById('gender').value,
-                    referredFrom: document.getElementById('referredFrom').value,
-                    accessType: document.getElementById('accessType').value,
-                    transactionId: document.getElementById('transactionId').value
-                };
+      // Get access type from URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const accessType = urlParams.get('type');
+      document.getElementById('accessType').value = accessType;
 
-                const file = document.getElementById('paymentScreenshot').files[0];
-                
-                // Disable submit button and show loading state
-                const submitBtn = document.querySelector('.submit-btn');
-                const originalText = submitBtn.textContent;
-                submitBtn.disabled = true;
-                submitBtn.textContent = 'Submitting...';
+      // ✅ Dynamic QR Code based on access type
+      const qrCodeImg = document.getElementById('qrCode');
+      if (accessType === "general") {
+        qrCodeImg.src = "250.jpeg"; // General QR
+      } else if (accessType === "vip") {
+        qrCodeImg.src = "500.jpeg"; // VIP QR
+      }
 
-                await saveFormData(formData, file);
-                
-                // Show success message
-                alert('Registration submitted successfully!');
-                
-                // Reset form
-                this.reset();
-                resetFileUpload();
-                
-            } catch (error) {
-                console.error('Error submitting form:', error);
-                alert('There was an error submitting your registration. Please try again.');
-            } finally {
-                // Re-enable submit button
-                const submitBtn = document.querySelector('.submit-btn');
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Submit';
-            }
-        });
+      // Form submission handling
+      document.getElementById('registrationForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        try {
+          const formData = {
+            firstName: document.getElementById('firstName').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('countryCode').value + document.getElementById('phone').value,
+            regNo: document.getElementById('regNo').value,
+            gender: document.getElementById('gender').value,
+            referredFrom: document.getElementById('referredFrom').value,
+            accessType: document.getElementById('accessType').value
+          };
+
+          const file = document.getElementById('paymentScreenshot').files[0];
+          const submitBtn = document.querySelector('.submit-btn');
+          const originalText = submitBtn.textContent;
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Submitting...';
+
+          await saveFormData(formData, file);
+
+          alert('Registration submitted successfully!');
+          this.reset();
+          resetFileUpload();
+        } catch (error) {
+          console.error('Error submitting form:', error);
+          alert('There was an error submitting your registration. Please try again.');
+        } finally {
+          const submitBtn = document.querySelector('.submit-btn');
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit';
+        }
+      });
     </script>
-        </main>
-    </div>
-    
-    <footer>
-        <img src="logo.png" alt="Logo">
-        <p><strong>NEED ASSISTANCE?</strong></p>
-        <p><a href="mailto:untangle.lpu@gmail.com">untangle.lpu@gmail.com</a></p>
-        <p>&copy; 2025 Untangle. All rights reserved.</p>
-    </footer>
+  </div>
+  
+  <footer>
+    <img src="logo.png" alt="Logo">
+    <p><strong>NEED ASSISTANCE?</strong></p>
+    <p><a href="mailto:untangle.lpu@gmail.com">untangle.lpu@gmail.com</a></p>
+    <p>&copy; 2025 Untangle. All rights reserved.</p>
+  </footer>
 </body>
 </html>
